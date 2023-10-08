@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalSample.MainPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <StackLayout Margin="20">
+        <!-- The event's title, which you'll see in the calendar -->
+        <Label Text="Event Summary" />
+        <Entry x:Name="SummaryEntry" Placeholder="Enter event summary" />
+        
+        <!-- The event's start date -->
+        <Label Text="Start Date" />
+        <DatePicker x:Name="StartDatePicker" />
+
+        <!-- The event's end date -->
+        <Label Text="End Date" />
+        <DatePicker x:Name="EndDatePicker" />
+
+        <!-- The optional input of the event's repetition.  -->
+        <Label Text="Recurrence Frequency" />
+        <Picker x:Name="FrequencyPicker">
+            <Picker.Items>
+                <x:String>None</x:String>
+                <x:String>Yearly</x:String>
+                <x:String>Monthly</x:String>
+                <x:String>Weekly</x:String>
+                <x:String>Daily</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <!-- The interval between recurrences. -->
+        <Label Text="Recurrence Interval" />
+        <Entry x:Name="IntervalEntry" Placeholder="Enter interval (e.g., 1)" Keyboard="Numeric" />
+
+        <!-- The optional field for choosing a day of the week for the event's repetition. -->
+        <Label Text="Recurrence Day of Week" />
+        <Picker x:Name="DayOfWeekPicker">
+            <Picker.Items>
+                <x:String>None</x:String>
+                <x:String>Sunday</x:String>
+                <x:String>Monday</x:String>
+                <x:String>Tuesday</x:String>
+                <x:String>Wednesday</x:String>
+                <x:String>Thursday</x:String>
+                <x:String>Friday</x:String>
+                <x:String>Saturday</x:String>
+            </Picker.Items>
+        </Picker>
+        
+        <!-- This param is for setting intervals between the days of the week; for example, if you selected -->
+        <!-- Friday and entered 2, it'll be applied for each second Friday.  -->
+        <Label Text="Recurrence Offset" />
+        <Entry x:Name="OffsetEntry" Placeholder="Enter offset (e.g., 1)" Keyboard="Numeric" />
+
+        <!-- Until which date repeat event. -->
+        <Label Text="Recurrence End Date" />
+        <DatePicker x:Name="RecurrenceEndDatePicker" />
+
+        <!-- Send data -->
+        <Button Text="Generate iCal" Clicked="GenerateICalClicked" />
+    </StackLayout>
+
+</ContentPage>
